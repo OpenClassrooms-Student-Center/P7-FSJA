@@ -153,3 +153,54 @@ docker run -it --rm -p 8080:8080 -p 80:80 -p 443:443 orion-microcrm-standalone:l
 ```
 
 L'application sera disponible sur https://localhost et l'API sur http://localhost:8080.
+
+### Docker Compose (recommandé)
+
+Pour lancer **front + back** ensemble :
+
+```shell
+docker compose up --build
+```
+
+Arrêt :
+
+```shell
+docker compose down
+```
+
+## CI/CD (GitHub Actions)
+
+### Workflows
+
+- **CI** : build + tests front/back + analyse SonarCloud
+   - Fichier : `.github/workflows/ci.yml`
+- **CD** : build & push des images Docker sur GHCR
+   - Fichier : `.github/workflows/cd.yml`
+- **Release (optionnel)** : création de release GitHub + artefacts
+   - Fichier : `.github/workflows/release.yml`
+
+### Secrets requis (SonarCloud)
+
+Pour activer l’analyse SonarCloud, ajouter ces secrets dans GitHub :
+
+- `SONAR_TOKEN`
+- `SONAR_ORGANIZATION`
+- `SONAR_PROJECT_KEY_BACK`
+- `SONAR_PROJECT_KEY_FRONT`
+
+### Déclenchement
+
+- CI : push et pull request sur `main`
+- CD : tag SemVer `vX.Y.Z` (ex: `v1.2.3`) ou manuel
+- Release : tag SemVer `vX.Y.Z`
+
+## Documentation de la mission (Partie 1)
+
+Les livrables de documentation sont dans le dossier `livrable/` :
+
+- `etape1-resume.md`
+- `etape2-plans.md`
+- `etape3-ci.md`
+- `etape4-conteneurisation.md`
+- `etape5-cd.md`
+- `etape6-release.md` (optionnel)
