@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "ci-cd-setup"]
   pull_request:
-    branches: ["main"]
+    branches: ["main", "ci-cd-setup"]
   workflow_dispatch:
 
 jobs:
