@@ -172,6 +172,8 @@ docker compose down
 
 ### Workflows
 
+_CI trigger: 2026-02-06_
+
 - **CI** : build + tests front/back + analyse SonarCloud
    - Fichier : `.github/workflows/ci.yml`
 - **CD** : build & push des images Docker sur GHCR
