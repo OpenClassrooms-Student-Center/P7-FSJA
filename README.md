@@ -172,7 +172,7 @@ docker compose down
 
 ### Workflows
 
-_CI trigger: 2026-02-06_
+_CI trigger: 2026-02-06 (run #3)_
 
 - **CI** : build + tests front/back + analyse SonarCloud
    - Fichier : `.github/workflows/ci.yml`
