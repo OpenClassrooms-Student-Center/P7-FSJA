@@ -73,7 +73,7 @@ jobs:
     continue-on-error: true
     env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_PROJECT_KEY_BACK: ${{ secrets.SONAR_PROJECT_KEY_BACK }}
+      SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
       SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
     steps:
       # Récupère le code
@@ -99,12 +99,12 @@ jobs:
         with:
           projectBaseDir: back
           args: >
-            -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY_BACK }}
-            -Dsonar.organization=${{ env.SONAR_ORGANIZATION }}
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
             -Dsonar.sources=src/main/java
             -Dsonar.java.binaries=build/classes/java/main
         env:
-          SONAR_TOKEN: ${{ env.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   sonarcloud-front:
     name: SonarCloud (Front)
