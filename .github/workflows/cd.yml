@@ -42,11 +42,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       # Grant execute permission for Gradle wrapper
-      - name: Grant execute permission for Gradle wrapper
+      - name: Accorder les permissions d'exécution au wrapper Gradle
         run: chmod +x ./gradlew
 
-      # Build & push image back
-      - name: Build & Push Back image
+      # Construire et pousser l'image Docker du backend
+      - name: Construire et Pousser l'image Backend
         uses: docker/build-push-action@v6
         with:
           context: .
