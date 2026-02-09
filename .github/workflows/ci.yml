@@ -2,9 +2,9 @@ name: CI
 on:
   # CI sur push/PR + manuel
   push:
-    branches: ["main", "ci-cd-setup"]
+    branches: ["main", "ci-cd-setup", "nouvelle-branche"]
   pull_request:
-    branches: ["main", "ci-cd-setup"]
+    branches: ["main", "ci-cd-setup", "nouvelle-branche"]
   workflow_dispatch:
 
 jobs:

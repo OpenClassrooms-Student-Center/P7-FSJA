@@ -3,6 +3,7 @@ on:
   # Déclenchement manuel ou via tag SemVer
   workflow_dispatch:
   push:
+    branches: ["main", "nouvelle-branche"]
     tags:
       - "v*.*.*"
 
