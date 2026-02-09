@@ -41,6 +41,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # Supprime les caractères Windows et rend le wrapper Gradle exécutable
+      - name: Fix Gradle wrapper permissions
+        run: |
+          chmod +x ./gradlew
+
+      # Build sans tests pour Docker
+      - name: Build (Docker)
+        run: ./gradlew build -x test
+
       # Grant execute permission for Gradle wrapper
       - name: Accorder les permissions d'exécution au wrapper Gradle
         run: chmod +x ./gradlew
