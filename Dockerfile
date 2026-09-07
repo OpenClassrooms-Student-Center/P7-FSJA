@@ -7,7 +7,7 @@ WORKDIR /src
 RUN npm ci \
     && npx @angular/cli build --optimization
 
-FROM gradle:jdk17 as back-build
+FROM gradle:8.7-jdk21 AS back-build
 
 COPY ./back /src
 
